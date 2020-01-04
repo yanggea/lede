@@ -65,7 +65,7 @@ jobs:
           cd package
           mkdir openwrt-packages
           cd openwrt-packages
-          git colne https://github.com/Leo-Jo/luci-app-koolproxyR.git
+          git clone https://github.com/Leo-Jo/luci-app-koolproxyR.git
           git clone https://github.com/Leo-Jo/luci-app-ssr-plus-jo.git
           git clone https://github.com/LuttyYang/luci-theme-material.git
       - name: Update feeds
