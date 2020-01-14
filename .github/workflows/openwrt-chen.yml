@@ -7,7 +7,7 @@
 # <https://github.com/KFERMercer/OpenWrt-CI>
 #
 
-name: 添加插件
+name: 删除插件
 
 on:
   schedule:
@@ -60,14 +60,6 @@ jobs:
           sudo -E apt-get -y autoremove --purge
           sudo -E apt-get clean
           
-      - name: 自定义插件主题
-        run: |
-          cd package
-          mkdir openwrt-packages
-          cd openwrt-packages
-          git clone https://github.com/Leo-Jo/luci-app-koolproxyR.git
-          git clone https://github.com/Leo-Jo/luci-app-ssr-plus-jo.git
-          git clone https://github.com/LuttyYang/luci-theme-material.git
       - name: Update feeds
         run: |
           ./scripts/feeds update -a
@@ -165,14 +157,11 @@ jobs:
           CONFIG_PACKAGE_luci-app-wireguard=y
           CONFIG_PACKAGE_luci-app-wrtbwmon=y
           CONFIG_PACKAGE_luci-app-syncdial=y
-          CONFIG_PACKAGE_luci-app-koolproxyR=y
-          CONFIG_PACKAGE_luci-app-ssr-plus-jo=y
           EOF
           # LuCI主题:
           cat >> .config <<EOF
           CONFIG_PACKAGE_luci-theme-argon=y
           CONFIG_PACKAGE_luci-theme-netgear=y
-          CONFIG_PACKAGE_luci-theme-material=y
           EOF
           # 常用软件包:
           cat >> .config <<EOF
